@@ -26,6 +26,9 @@ def preprocessing(dataframe):
     data = torch.from_numpy(data)
     return data.view(1, 1, data.size()[0], data.size()[1])
 
+@app.route("/", methods=["GET"])
+def connect_check():
+    return "Connection Established"
 
 @app.route("/selltime", methods=["GET"])
 def predictSellTime():
