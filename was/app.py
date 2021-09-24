@@ -5,12 +5,12 @@ import pandas as pd
 import numpy as np
 from flask import request, Flask
 
-from model.model import Model
+from model import Model
 
 with open("../config.yaml", "r") as f:
     config = yaml.load(f, Loader=yaml.SafeLoader)
 trained_model = Model()
-trained_model.load_state_dict(torch.load("../model/coin-model.pth"))
+trained_model.load_state_dict(torch.load("./coin-model.pth"))
 trained_model.eval()
 app = Flask(__name__)
 
